@@ -1,0 +1,104 @@
+
+header {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 200px;
+  transition: 0.5s ease;
+}
+header .brand {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+header .brand:hover {
+  scale:1.1;
+}
+
+header .navigation .navigation-items a {
+  position: relative;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 30px;
+  transition: 0.3s ease;
+}
+header .navigation .navigation-items a:before {
+  content: "";
+  position: absolute;
+  background: #fff;
+  width: 0%;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  transition: 0.3s ease;
+}
+header .navigation .navigation-items a:hover:before {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  header{
+    padding:15px 30px;
+  }
+  header .navigation {
+    display:none;
+    width: 100%;
+  }
+  header .navigation.active {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(1, 1, 1, 0.6);
+  }
+  header .navigation .navigation-items a {
+    color: #0f5d95;
+    font-size: 1.2em;
+    margin: 20px;
+  }
+  header .navigation.active .navigation-items {
+    background:#fff;
+    width:600px;
+    max-width:600px;
+    margin:20px;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-radius:5px;
+    box-shadow: 0 5px 25px rgb(1 1 1 / 20%)
+
+  }
+  header .navigation .navigation-items a:before {
+    background: #0f5d95;
+  }
+  .menu-btn {
+    background: url("./../../assets/menu.png") no-repeat;
+    background-size: 30px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 999;
+  }
+  .menu-btn.active {
+    background: url("./../../assets/close.png") no-repeat;
+    background-size: 20px;
+    background-position: center;
+    transition: 0.3s ease;
+  }
+}
