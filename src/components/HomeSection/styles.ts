@@ -13,16 +13,17 @@ export const HomeSectionContainer = styled.section`
     padding: 15px 30px;
   }
 
-  /* :before {
+  &:before {
     z-index: 111;
     content: "";
     position: absolute;
-    background: rgba(3, 96, 251, 0.3);
+    /* background: rgba(3, 96, 251, 0.3); */
+    background: rgba(150, 150, 150, 0.3);
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-  } */
+  }
 `;
 export const Title = styled.h1`
   font-size: 4em;
@@ -45,6 +46,10 @@ export const ContentContainer = styled.div`
     margin-bottom: 65px;
   }
   a {
+    width: 10rem;
+    display:flex ;
+    justify-content:center ;
+    align-items:center ;
     background: ${(props) => props.theme["gray-100"]};
     padding: 15px 35px;
     color: ${(props) => props.theme["blue-500"]};
@@ -55,7 +60,6 @@ export const ContentContainer = styled.div`
   }
   a:hover {
     scale: 1.1;
-    opacity: 0.8;
   }
 `;
 export const SocialMediaContainer = styled.div`
@@ -87,4 +91,9 @@ export const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* clip-path: circle(0.0% at 0 50%); */
+
+  /* &.active{
+    clip-path: circle(150% at 0 50%);
+  } */
 `;

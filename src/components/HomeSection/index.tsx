@@ -5,16 +5,22 @@ import {
   Title,
   Video,
 } from "./styles";
+import{ useContext } from 'react'
 import {
   TwitterLogo,
   InstagramLogo,
   FacebookLogo,
 } from "@phosphor-icons/react";
-import mykonosMp4 from './../../assets/mykonos/mykonos.mp4'
+import mykonosMp4 from "./../../assets/mykonos/bg.mp4";
+import { SliderNavigation } from "./components/SliderNavigation";
+import { SliderContext } from "../../contexts/SliderContext";
 export function HomeSection() {
+  const { localSelected,localSelectedVideoUrl } = useContext(SliderContext)
+
   return (
     <HomeSectionContainer>
-      <Video src={mykonosMp4} autoPlay muted loop/>
+      
+      <Video src={localSelected === 'none' ?  mykonosMp4 : localSelectedVideoUrl } autoPlay muted loop />
       <ContentContainer>
         <Title>
           Wonderful.
@@ -39,6 +45,7 @@ export function HomeSection() {
           <FacebookLogo weight="fill" />
         </a>
       </SocialMediaContainer>
+      <SliderNavigation/>
     </HomeSectionContainer>
   );
 }
