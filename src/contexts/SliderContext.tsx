@@ -5,6 +5,7 @@ interface SliderContextType{
   handleSelectLocal : (local:'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none') => void
   handleSelectLocalVideoUrl : (local:'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none') => void
   localSelectedVideoUrl : string
+  // funcaoQRetornaVideo: ()=> Promise<ReactNode>
 }
 
 export const SliderContext = createContext({} as SliderContextType)
