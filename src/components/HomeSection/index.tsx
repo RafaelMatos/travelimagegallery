@@ -21,34 +21,47 @@ import { SliderContext } from "../../contexts/SliderContext";
 export function HomeSection() {
   const { localSelected } = useContext(SliderContext);
   const [videoSelected, setVideoSelected] = useState(mykonosMp4);
-  useEffect(() => {
-
+  const [active, setActive] = useState(true);
+  async function handleVideoSlide(){
     switch (localSelected) {
       case "mykonos":
+        setActive(false)
         setVideoSelected(mykonosMp4)
         break;
       case "venice":
+        setActive(false)
         setVideoSelected(veniceMp4)
         break;
       case "kotor":
+        setActive(false)
         setVideoSelected(kotorMp4)
         break;
       case "santorini":
+        setActive(false)
         setVideoSelected(santoriniMp4)
         break;
       case "ancona":
+        setActive(false)
         setVideoSelected(anconaMp4)
         break;
       case "none":
+        setActive(false)
         setVideoSelected(mykonosMp4)
         break;
     }
+    await setTimeout(() => {
+      setActive(true)
+    }, 250);
+  }
+  useEffect( () => {
+
+    handleVideoSlide()
+
   }, [localSelected]);
 
   return (
     <HomeSectionContainer>
-      {/* <Video src={localSelected === 'none' ?  mykonosMp4 : localSelectedVideoUrl } autoPlay muted loop /> */}
-      <Video src={videoSelected ? videoSelected : mykonosMp4} autoPlay muted loop />
+      <Video src={videoSelected ? videoSelected : mykonosMp4} className={active ? 'active' : ''} autoPlay muted loop />
       <ContentContainer>
         <Title>
           Wonderful.

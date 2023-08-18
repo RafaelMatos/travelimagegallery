@@ -91,9 +91,10 @@ export const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* clip-path: circle(0.0% at 0 50%); */
+  clip-path: circle(0.0% at 0 50%);
 
-  /* &.active{
+  &.active{
     clip-path: circle(150% at 0 50%);
-  } */
+    transition: 2s ease ;
+  }
 `;
