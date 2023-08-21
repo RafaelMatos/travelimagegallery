@@ -21,52 +21,68 @@ import { SliderContext } from "../../contexts/SliderContext";
 export function HomeSection() {
   const { localSelected } = useContext(SliderContext);
   const [videoSelected, setVideoSelected] = useState(mykonosMp4);
+  const [title, setTitle] = useState('WONDERFUL');
+  const [span, setSpan] = useState('ISLAND');
   const [active, setActive] = useState(true);
-  async function handleVideoSlide(){
+  async function handleVideoSlide() {
     switch (localSelected) {
       case "mykonos":
-        setActive(false)
-        setVideoSelected(mykonosMp4)
+        setActive(false);
+        setTitle('partiest')
+        setSpan('island')
+        setVideoSelected(mykonosMp4);
         break;
       case "venice":
-        setActive(false)
-        setVideoSelected(veniceMp4)
+        setActive(false);
+        setTitle('romantic')
+        setSpan('city')
+        setVideoSelected(veniceMp4);
         break;
       case "kotor":
-        setActive(false)
-        setVideoSelected(kotorMp4)
+        setActive(false);
+        setTitle('historical')
+        setSpan('town')
+        setVideoSelected(kotorMp4);
         break;
       case "santorini":
-        setActive(false)
-        setVideoSelected(santoriniMp4)
+        setActive(false);
+        setTitle('magical')
+        setSpan('sunset')
+        setVideoSelected(santoriniMp4);
         break;
       case "ancona":
-        setActive(false)
-        setVideoSelected(anconaMp4)
+        setActive(false);
+        setTitle('charming')
+        setSpan('italian city')
+        setVideoSelected(anconaMp4);
         break;
       case "none":
-        setActive(false)
-        setVideoSelected(mykonosMp4)
+        setActive(false);
+        setVideoSelected(mykonosMp4);
         break;
     }
     await setTimeout(() => {
-      setActive(true)
+      setActive(true);
     }, 250);
   }
-  useEffect( () => {
-
-    handleVideoSlide()
-
+  useEffect(() => {
+    handleVideoSlide();
   }, [localSelected]);
 
   return (
     <HomeSectionContainer>
-      <Video src={videoSelected ? videoSelected : mykonosMp4} className={active ? 'active' : ''} autoPlay muted loop />
+      <Video
+        src={videoSelected ? videoSelected : mykonosMp4}
+        className={active ? "active" : ""}
+        autoPlay
+        muted
+        loop
+      />
       <ContentContainer>
         <Title>
-          Wonderful.
+          {title}.
           <br />
-          <span>Island</span>
+          <span>{span}</span>
         </Title>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
