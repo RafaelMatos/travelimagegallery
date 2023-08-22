@@ -1,12 +1,15 @@
 import { ReactNode, createContext, useState } from "react";
 
+export type Local = 'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none'
+
 interface SliderContextType{
-  localSelected :  'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none'  
-  handleSelectLocal : (local:'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none') => void
-  handleSelectLocalVideoUrl : (local:'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none') => void
+  localSelected : Local
+  handleSelectLocal : (local:Local) => void
+  handleSelectLocalVideoUrl : (local:Local) => void
   localSelectedVideoUrl : string
-  // funcaoQRetornaVideo: ()=> Promise<ReactNode>
 }
+
+
 
 export const SliderContext = createContext({} as SliderContextType)
 
@@ -16,14 +19,14 @@ interface SliderProviderProps{
 
 export function SliderProvider({children} : SliderProviderProps ){
 
-  const [localSelected, setLocalSelected] = useState<  'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none' >('none');
-  const [localSelectedVideoUrl, setLocalSelectedVideoUrl] = useState< string >('./../assets/mykonos/bg.mp4');
+  const [localSelected, setLocalSelected] = useState<  Local >('none');
+  const [localSelectedVideoUrl, setLocalSelectedVideoUrl] = useState('./../assets/mykonos/bg.mp4');
 
-  const handleSelectLocal = (local:'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none') =>{
+  const handleSelectLocal = (local:Local) =>{
     setLocalSelected(local)
     handleSelectLocalVideoUrl(local)
   }
-  const handleSelectLocalVideoUrl = (local:'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none') =>{
+  const handleSelectLocalVideoUrl = (local:Local) =>{
     const url = `/src/assets/${local}/bg.mp4`
     setLocalSelectedVideoUrl(url)
 

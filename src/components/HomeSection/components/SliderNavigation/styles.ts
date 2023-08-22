@@ -1,4 +1,5 @@
 import {  styled } from "styled-components";
+import { Local } from "../../../../contexts/SliderContext";
 export const SliderNavigationConstainer = styled.div`
   z-index: 888;
   position: relative ;
@@ -10,8 +11,8 @@ export const SliderNavigationConstainer = styled.div`
 
 `
 interface NavBtnProps {
-  local: 'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none'
-  selected: 'mykonos' | 'venice' | 'kotor' | 'ancona' | 'santorini' | 'none'
+  local: Local
+  selected: Local
 }
 export const SliderNavBtn = styled.div<NavBtnProps>`
   width: 12px;
