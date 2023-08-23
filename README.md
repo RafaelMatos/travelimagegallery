@@ -15,8 +15,8 @@ Nesse projeto será construida uma aplicação front-end web, para estudo de cri
   - Axios -->
 
 ## Ultima atualização 🔃
-- Pagina home criada
-- Adicionado video no background
+- Slides de video funcionando
+- Adicionado efeito no slide de video
 
 ## Como utilizar
 - Clone o projeto do repositório
